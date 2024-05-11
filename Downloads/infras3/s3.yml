@@ -7,6 +7,8 @@ spec:
     acl: private
     versioning:
       enabled: true
+  providerConfigRef:
+    name: default
     lifecycleConfiguration:
       rules:
       - id: logs
@@ -33,3 +35,4 @@ spec:
         - "ETag"
         maxAgeSeconds: 300
   deletionPolicy: Delete
+
