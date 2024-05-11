@@ -8,10 +8,30 @@ spec:
     acl: private
     versioning:
       enabled: true
+    tags:
+      Name: my-s3-bucket-oumayma2
+    corsConfiguration:
+      corsRules:
+        - allowedHeaders:
+            - "*"
+          allowedMethods:
+            - GET
+            - POST
+            - PUT
+          allowedOrigins:
+            - "*"
+          exposeHeaders:
+            - "ETag"
+          maxAgeSeconds: 300
   providerConfigRef:
     name: default
   lifecycleConfiguration:
     rules:
-      - id: DeleteNoncurrentVersions
+      - id: logs
+        prefix: logs/
         status: Enabled
         expirationInDays: 7
+  loggingConfiguration:
+    destinationBucketName: logs-bucket-crossplane
+    logFilePrefix: logs/
+  deletionPolicy: Delete
