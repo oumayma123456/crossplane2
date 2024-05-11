@@ -2,31 +2,16 @@ apiVersion: s3.aws.upbound.io/v1beta1
 kind: Bucket
 metadata:
   name: my-s3-bucket-oumayma2
-  labels:
-    resource: S3
 spec:
   forProvider:
     region: us-east-2
     acl: private
     versioning:
       enabled: true
+  providerConfigRef:
+    name: default
   lifecycleConfiguration:
     rules:
       - id: DeleteNoncurrentVersions
         status: Enabled
         expirationInDays: 7
-  tags:
-    - key: object
-      value: my-s3-bucket-oumayma2
-  bucketPolicy: |
-    {
-      "Version": "2012-10-17",
-      "Statement": [
-        {
-          "Effect": "Deny",
-          "Principal": "*",
-          "Action": "s3:PutObject",
-          "Resource": "arn:aws:s3:::my-s3-bucket-oumayma2/*"
-        }
-      ]
-    }
