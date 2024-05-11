@@ -11,28 +11,7 @@ spec:
   providerConfigRef:
     name: default
   lifecycleConfiguration:
-      rules:
-      - id: logs
-        prefix: logs/
+    rules:
+      - id: DeleteNoncurrentVersions
         status: Enabled
         expirationInDays: 7
-    loggingConfiguration:
-      destinationBucketName: logs-bucket-crossplane
-      logFilePrefix: logs/
-    tags:
-    - key: Name
-      value: my-s3-bucket-oumayma2
-    corsConfiguration:
-      corsRules:
-      - allowedHeaders:
-        - "*"
-        allowedMethods:
-        - GET
-        - POST
-        - PUT
-        allowedOrigins:
-        - "*"
-        exposeHeaders:
-        - "ETag"
-        maxAgeSeconds: 300
-  deletionPolicy: Delete
