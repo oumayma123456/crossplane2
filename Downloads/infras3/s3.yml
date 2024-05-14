@@ -6,6 +6,7 @@ spec:
   forProvider:
     region: us-east-2
     acl: private
-    Versioning:true 
+    versioning:
+      enabled: true
   providerConfigRef:
     name: default
