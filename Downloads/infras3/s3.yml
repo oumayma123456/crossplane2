@@ -23,4 +23,5 @@ spec:
       - key: Department
         value: Engineering
   providerConfigRef:
-    name: aws-provider-config
+    name: default
+  
