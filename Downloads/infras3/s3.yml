@@ -1,6 +1,7 @@
 apiVersion: s3.aws.upbound.io/v1beta1
 kind: Bucket
 metadata:
+  name: my-s3-bucket-oumayma2
 spec:
   forProvider:
     objectLockEnabled: true
