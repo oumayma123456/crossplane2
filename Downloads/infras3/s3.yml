@@ -6,6 +6,6 @@ spec:
   forProvider:
     region: us-east-2
     versioningConfiguration:
-      status: Enabled
+      enabled: true
   providerConfigRef:
     name: default
