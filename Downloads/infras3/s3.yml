@@ -5,7 +5,30 @@ metadata:
 spec:
   forProvider:
     region: us-east-2
-     versioning:
+    versioning:
       enabled: true
+    lifecycleConfiguration:
+      rules:
+        - id: ExpireOldLogs
+          prefix: logs/
+          status: Enabled
+          expirationInDays: 30
+    policy: |
+      {
+        "Version": "2012-10-17",
+        "Statement": [
+          {
+            "Sid": "AllowPublicRead",
+            "Effect": "Allow",
+            "Principal": "*",
+            "Action": [
+              "s3:GetObject"
+            ],
+            "Resource": [
+              "arn:aws:s3:::my-s3-bucket-oumayma2/*"
+            ]
+          }
+        ]
+      }
   providerConfigRef:
     name: default
