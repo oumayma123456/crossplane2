@@ -24,4 +24,3 @@ spec:
         value: Engineering
   providerConfigRef:
     name: default
-  
