@@ -12,7 +12,6 @@ spec:
     name: default
 status:
   atProvider:
-    acl: " public-read"
+    acl: 'public-read'
     versioning: 
-      enabled : true
-    
+      - enabled: true    
