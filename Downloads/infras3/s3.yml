@@ -1,12 +1,11 @@
 apiVersion: s3.aws.upbound.io/v1beta1
 kind: Bucket
 metadata:
-  name: example-s3-bucket
+  name: my-s3-bucket-oumayma2
 spec:
   forProvider:
     region: us-east-2
-    acl: private
-    versioning:
+     versioning:
       enabled: true
   providerConfigRef:
     name: default
